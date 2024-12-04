@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>product card</title>
+    <style>
+        .product-card{
+            width: 300px;
+border: 1px solid grey;
+display: block;
+margin: 50px auto;
+box-shadow: 0 0 10px rgba(0,0,0,0.3);
+         border-radius: 10px;
+         padding:0px 20px;
+        }
+        .product-img{
+            height: 150px;
+            display: block;
+            margin: 10px auto;
+        }
+        .product-title{
+            font-size: 20px;
+        }
+        .product-price{
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .btn-add-cart{
+            display: block;
+            margin: 30px auto;
+            font-size: 20px;
+            padding: 10px 30px;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        .quantity-container{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .btn-quantity{
+            width: 40px;
+            cursor: pointer;
+        }
+        .product-quantity{
+            font-size:30px ;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+<div class="product-card">
+    <img src="shoes.jpg" class="product-img" alt="">
+    <h1 class = "product-title"> ARROW MENS'S FORMAL </h1>
+    <p class="product-descprition">
+        Arrow mens formal black shoes mate finesh oxfoard pattern stiched sole
+    </p>
+    <p class="product-price">Price: 5000 RS</p>
+    <div class="quantity-container">
+        <img src="minus.png" alt="" class="btn-quantity" onclick="decreseQuantity()"/>
+        <span class="product-quantity" id="quantity-text">1</span>
+        <img src="plus.png" alt="" class="btn-quantity" onclick="increseQuantity()"/>
+    </div>
+    <button type="button" class="btn-add-cart"> Add to Cart</button>
+</div>
+<script>
+    const quantityElement = document.getElementById("quantity-text");
+    function increseQuantity(){
+       
+    let quantity = parseInt(quantityElement.innerText);
+    if (quantity<10){
+    quantityElement.innerText = ++quantity;
+    } else{
+        alert("you can't add more than 10 items");
+    }
+}
+    function decreseQuantity(){
+         
+    let quantity = parseInt(quantityElement.innerText);
+    if (quantity>1){
+    quantityElement.innerText = --quantity;
+    } else{
+        alert("you can't add less than 1 items");
+    }
+    }
+</script>
+</body>
+</html> 
